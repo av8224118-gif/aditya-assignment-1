@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+    private:
+    int id;
+    string name;
+    float salary;
+
+    public:
+    Employee(int i, string n,float s)
+    {
+        id = i;
+        name = n;
+        salary = s;
+    }
+
+    // overloading << operator
+    friend ostream&
+    operator<<(ostream& out, const Employee& e)
+{
+    out << "Employee ID: "
+    << e.id << endl;
+    out << "Employee Name: "<< e.name << endl;
+    out << "Employee Salary:" << e.salary << endl;
+
+    return out;
+}
+};
+
+int main()
+{
+    Employee e1(101, "Aditya",35000);
+
+    cout << e1;
+
+    return 0;
+}
